@@ -4,8 +4,8 @@ apply plugin: "com.google.firebase.firebase-perf"
 apply plugin: "io.fabric"
 
 apply plugin: "kotlin-android"
-
 apply plugin: "kotlin-android-extensions"
+
 apply plugin: "com.google.gms.google-services"
 
 android {
@@ -30,15 +30,19 @@ android {
 
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
+
+    // Kotlin
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 
+    // Multidex
     implementation 'com.android.support:multidex:1.0.3'
 
+    // AndroidX
     implementation "androidx.appcompat:appcompat:1.0.0-rc01"
     implementation "androidx.constraintlayout:constraintlayout:1.1.2"
     implementation "androidx.lifecycle:lifecycle-extensions:2.0.0-rc01"
 
-    implementation "com.crashlytics.sdk.android:crashlytics:2.9.4"
+    // Firebase
     implementation "com.google.firebase:firebase-core:16.0.1"
     implementation "com.google.firebase:firebase-config:16.0.0"
     implementation "com.google.firebase:firebase-messaging:17.3.0"
@@ -48,7 +52,16 @@ dependencies {
     implementation "com.google.firebase:firebase-invites:16.0.1"
     implementation "com.google.firebase:firebase-ads:15.0.1"
     implementation "com.google.firebase:firebase-perf:16.1.0"
+    implementation "com.crashlytics.sdk.android:crashlytics:2.9.4"
 
+    // Room
+    implementation "androidx.room:room-runtime:2.0.0-rc01"
+    kapt "androidx.room:room-compiler:2.0.0-rc01"
+
+    // Paging
+    //implementation "androidx.paging:paging-runtime:2.0.0-rc01"
+
+    // Test
     testImplementation "junit:junit:4.12"
     androidTestImplementation "androidx.test:runner:1.1.0-alpha4"
     androidTestImplementation "androidx.test.espresso:espresso-core:3.1.0-alpha4"

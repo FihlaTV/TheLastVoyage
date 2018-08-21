@@ -1,9 +1,9 @@
-package com.alter.thelastvoyage
+package com.alter.thelastvoyage.view
 
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
-import com.alter.thelastvoyage.ui.main.MainFragment
+import com.alter.thelastvoyage.R
 import com.google.android.gms.ads.AdListener
 import com.google.android.gms.ads.AdRequest
 import com.google.firebase.analytics.FirebaseAnalytics

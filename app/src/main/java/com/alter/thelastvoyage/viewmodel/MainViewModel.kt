@@ -1,4 +1,4 @@
-package com.alter.thelastvoyage.ui.main
+package com.alter.thelastvoyage.viewmodel
 
 import androidx.lifecycle.ViewModel
 

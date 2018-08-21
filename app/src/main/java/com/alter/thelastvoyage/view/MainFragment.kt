@@ -1,4 +1,4 @@
-package com.alter.thelastvoyage.ui.main
+package com.alter.thelastvoyage.view
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import com.alter.thelastvoyage.R
+import com.alter.thelastvoyage.viewmodel.MainViewModel
 
 
 class MainFragment : Fragment() {

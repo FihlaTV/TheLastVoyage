@@ -50,8 +50,8 @@ class TheLastVoyage : MultiDexApplication() {
         instance = this
 
         // Get current version
-        version = OSUtils.getVersionCode(this)
         versionName = OSUtils.getVersionName(this)
+        version = OSUtils.getVersionCode(this)
     }
 
     /**
