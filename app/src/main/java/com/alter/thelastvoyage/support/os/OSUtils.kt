@@ -1,5 +1,6 @@
 package com.alter.thelastvoyage.support.os
 
+import android.annotation.TargetApi
 import android.app.Activity
 import android.app.ActivityManager
 import android.content.Context
@@ -34,7 +35,8 @@ object OSUtils {
      */
     fun getVersionName(context: Context): String {
         return try {
-            context.packageManager.getPackageInfo(context.packageName, 0).versionName
+            val packageInfo = context.packageManager.getPackageInfo(context.packageName, 0)
+            packageInfo.versionName
         } catch (t: Throwable) {
             context.getString(android.R.string.unknownName)
         }
@@ -45,9 +47,16 @@ object OSUtils {
      * @param context of the caller.
      * @return version code.
      */
-    fun getVersionCode(context: Context): Int {
+    @TargetApi(28)
+    fun getVersionCode(context: Context): Long {
         return try {
-            context.packageManager.getPackageInfo(context.packageName, 0).versionCode
+            val packageInfo = context.packageManager.getPackageInfo(context.packageName, 0)
+            if (hasPie()) {
+                packageInfo.longVersionCode
+            } else {
+                @Suppress("DEPRECATION")
+                packageInfo.versionCode.toLong()
+            }
         } catch (t: Throwable) {
             0
         }
@@ -118,6 +127,15 @@ object OSUtils {
      */
     fun hasOreo(): Boolean {
         return Build.VERSION.SDK_INT >= VERSION_CODES.O
+    }
+
+    /**
+     * Check if the user-visible SDK version of the framework is equal or newer to API 28.
+     *
+     * @return true if API 28+, false otherwise.
+     */
+    fun hasPie(): Boolean {
+        return Build.VERSION.SDK_INT >= VERSION_CODES.P
     }
 
     /**

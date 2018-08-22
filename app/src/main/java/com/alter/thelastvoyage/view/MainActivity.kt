@@ -6,15 +6,14 @@ import androidx.appcompat.app.AppCompatActivity
 import com.alter.thelastvoyage.R
 import com.google.android.gms.ads.AdListener
 import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.InterstitialAd
+import com.google.android.gms.ads.MobileAds
 import com.google.firebase.analytics.FirebaseAnalytics
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.iid.FirebaseInstanceId
 import com.google.firebase.remoteconfig.FirebaseRemoteConfig
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
-import com.google.android.gms.appinvite.AppInviteInvitation
-import com.google.android.gms.ads.InterstitialAd
-import com.google.android.gms.ads.MobileAds
 
 
 class MainActivity : AppCompatActivity() {
@@ -89,12 +88,12 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun onInviteClicked() {
-        val intent = AppInviteInvitation.IntentBuilder("Invitation title")
-                .setMessage("Invitation message")
+//        val intent = AppInviteInvitation.IntentBuilder("Invitation title")
+//                .setMessage("Invitation message")
 //                .setDeepLink(Uri.parse(getString(R.string.invitation_deep_link)))
 //                .setCustomImage(Uri.parse(getString(R.string.invitation_custom_image)))
-                .setCallToActionText("Invitation CTA")
-                .build()
+//                .setCallToActionText("Invitation CTA")
+//                .build()
 //        startActivityForResult(intent, REQUEST_INVITE)
     }
 }

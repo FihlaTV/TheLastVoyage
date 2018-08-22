@@ -29,7 +29,7 @@ class TheLastVoyage : MultiDexApplication() {
             private set
 
         /** Version code.  */
-        var version: Int = 0
+        var version: Long = 0
             private set
 
         /**

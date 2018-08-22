@@ -142,7 +142,7 @@ object StorageUtils {
 
             // ExternalStorageProvider
             if (isExternalStorageDocument(uri)) {
-                val path = getExternalStorageProviderPathFromUri(context, uri)
+                val path = getExternalStorageProviderPathFromUri(uri)
                 if (!TextUtils.isEmpty(path)) {
                     return path
                 }
@@ -197,12 +197,11 @@ object StorageUtils {
 
     /**
      * Get Uri path from External Storage Provider.
-     * @param context of the caller.
      * @param uri to parse.
      * @return uri path.
      */
     @TargetApi(Build.VERSION_CODES.KITKAT)
-    private fun getExternalStorageProviderPathFromUri(context: Context, uri: Uri): String? {
+    private fun getExternalStorageProviderPathFromUri(uri: Uri): String? {
         val docId = DocumentsContract.getDocumentId(uri)
         if (TextUtils.isEmpty(docId)) {
             return null
@@ -367,11 +366,7 @@ object StorageUtils {
             return MIME_TYPE_BINARY
         }
         val extensionNoDot = extension.substring(1)
-        val mimeType = MimeTypeMap.getSingleton().getMimeTypeFromExtension(extensionNoDot)
-
-        return if (TextUtils.isEmpty(mimeType)) {
-            MIME_TYPE_BINARY
-        } else mimeType
+        return MimeTypeMap.getSingleton().getMimeTypeFromExtension(extensionNoDot) ?: MIME_TYPE_BINARY
     }
 
     /**

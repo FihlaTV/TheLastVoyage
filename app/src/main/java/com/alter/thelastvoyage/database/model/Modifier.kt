@@ -1,4 +1,4 @@
-package com.alter.thelastvoyage.model
+package com.alter.thelastvoyage.database.model
 
 // TODO
 data class Modifier(

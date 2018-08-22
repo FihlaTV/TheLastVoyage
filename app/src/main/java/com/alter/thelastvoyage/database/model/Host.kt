@@ -1,4 +1,4 @@
-package com.alter.thelastvoyage.model
+package com.alter.thelastvoyage.database.model
 
 import androidx.room.Entity
 import androidx.room.Index
