@@ -9,17 +9,26 @@ import com.alter.thelastvoyage.database.model.Host
 interface HostDAO {
 
     @Insert(onConflict = REPLACE)
-    fun insert(vararg hosts: Host)
+    fun insert(host: Host) : Long
+
+    @Insert(onConflict = REPLACE)
+    fun insertAll(vararg hosts: Host)
 
     @Update
-    fun update(vararg hosts: Host)
+    fun update(host: Host)
+
+    @Update
+    fun updateAll(vararg hosts: Host)
 
     @Delete
-    fun delete(vararg hosts: Host)
+    fun delete(host: Host)
 
-    @Query("SELECT * FROM host")
-    fun getAll(): LiveData<List<Host>>
+    @Delete
+    fun deleteAll(vararg hosts: Host)
 
     @Query("SELECT * FROM host WHERE id = :id")
     fun get(id: Long): LiveData<Host>
+
+    @Query("SELECT * FROM host")
+    fun getAll(): LiveData<List<Host>>
 }

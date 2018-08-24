@@ -3,6 +3,7 @@ package com.alter.thelastvoyage
 import com.alter.thelastvoyage.support.os.OSUtils
 
 import androidx.multidex.MultiDexApplication
+import com.alter.thelastvoyage.database.UniverseDatabase
 
 /**
  * Application base class. It contains the variables, constants and methods used across the application.
@@ -52,6 +53,9 @@ class TheLastVoyage : MultiDexApplication() {
         // Get current version
         versionName = OSUtils.getVersionName(this)
         version = OSUtils.getVersionCode(this)
+
+        // Init database
+        //UniverseDatabase.init()
     }
 
     /**

@@ -9,20 +9,26 @@ import com.alter.thelastvoyage.database.model.Planet
 interface PlanetDAO {
 
     @Insert(onConflict = REPLACE)
-    fun insert(vararg planets: Planet)
+    fun insert(planet: Planet) : Long
+
+    @Insert(onConflict = REPLACE)
+    fun insertAll(vararg planets: Planet)
 
     @Update
-    fun update(vararg planets: Planet)
+    fun update(planet: Planet)
+
+    @Update
+    fun updateAll(vararg planets: Planet)
 
     @Delete
-    fun delete(vararg planets: Planet)
+    fun delete(planet: Planet)
 
-    @Query("SELECT * FROM planet")
-    fun getAll(): LiveData<List<Planet>>
+    @Delete
+    fun deleteAll(vararg planets: Planet)
 
     @Query("SELECT * FROM planet WHERE id = :id")
     fun get(id: Long): LiveData<Planet>
 
-    @Query("SELECT * FROM host, planet WHERE id = :id")
-    fun getHost(id: Long): LiveData<Planet>
+    @Query("SELECT * FROM planet")
+    fun getAll(): LiveData<List<Planet>>
 }

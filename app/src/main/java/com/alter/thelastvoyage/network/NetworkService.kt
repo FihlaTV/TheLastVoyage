@@ -5,7 +5,7 @@ import io.fabric.sdk.android.services.network.NetworkUtils
 import java.net.HttpURLConnection
 import java.net.URL
 
-object NetworkManager {
+object NetworkService {
 
     /** Log tag.  */
     private val TAG = NetworkUtils::class.java.simpleName
